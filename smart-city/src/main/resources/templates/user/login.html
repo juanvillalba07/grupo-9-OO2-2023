@@ -5,6 +5,15 @@
 	   <title>Login</title>
    <head>
     <body>
+		<style >
+			body{
+				background-image: url(https://nexusintegra.io/es/wp-content/webpc-passthru.php?src=https://nexusintegra.io/es/wp-content/uploads/2021/11/Smart-City.jpg&nocache=1);
+				background-size: cover;
+				background-repeat: no-repeat;
+				background-attachment: fixed;
+				background-position: center;
+			}
+		</style>
           <!-- Page Content -->
 	    <div class="container">
 	      <div class="jumbotron">
@@ -14,7 +23,9 @@
 		      	<input type="password" name="password" id="password" placeholder="Password" />
 		      	<input type="submit" />
 	      	</form>
-	      	
+	      	 <div th:if="${error != null}" class="alert alert-danger">
+		    	Invalid username or password.
+		    </div>
 	      </div>
 	    </div>
     </body>
