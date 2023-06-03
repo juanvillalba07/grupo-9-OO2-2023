@@ -11,4 +11,14 @@ public class ViewRouteHelper {
 	
 	/**** Redirects ****/
 	public final static String ROUTE = "/index";
+	
+	//Baños
+	public final static String SENSOR_BANIO_LISTA = "sensorBanio/listaBanios";
+	public final static String SENSOR_BANIO_CREAR = "sensorBanio/crear";
+	public final static String SENSOR_BANIO_EDITAR = "sensorBanio/editar";
+	
+	//Redirecciones Baños
+	public final static String REDIRECT_SENSOR_BANIO_LISTA = "listaBanios";
+	public final static String REDIRECT_SENSOR_BANIO_CREAR = "crear";
+	public final static String REDIRECT_SENSOR_BANIOS = "redirect:/sensorBanio/listaBanios";
 }
