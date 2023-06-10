@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/smart-city
     username: root
-    password: admin
+    password: juan
   jpa:
     show-sql: true
     hibernate:
