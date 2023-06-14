@@ -21,13 +21,4 @@ public class SensorAlumbradoEntity extends DispositivoEntity{
 	@Column
 	private int intensidad;
 
-	public SensorAlumbradoEntity(Integer id, String nombre, boolean activo, Set<EventoEntity> eventos, String lugar, int luzAmbiente, int intensidad) {
-		super(id, nombre, activo, eventos);
-		this.lugar = lugar;
-		this.luzAmbiente = luzAmbiente;
-		this.intensidad = intensidad;
-	}
-
-    
-    
 }
