@@ -22,23 +22,20 @@
 
 				<form action="#" th:action="@{/estacionamiento/guardar}" th:object="${sensor}" method="post">
 					<div class="form-group row">
-						<label class="col-md-2" for="nombre">Nombre</label>
+						<label class="col-md-2" for="nombre">Nombre sensor</label>
 						<input type="text" th:field="*{nombre}"class="form-control form-control-sm col-md-6" id="nombre"
 							placeholder="Nombre">
 						<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
 					</div>
-
-					<!-- <div class="form-group row">
-						<label class="col-md-2" for="libre">Libre?</label>
-						<select class="form-control form-control-sm col-md-6" id="libre">
-							 <option th:each="ciudad:${ciudades}" th:value="${ciudad.id}" th:text="$ciudad.ciudad"></option>
-							<option value="Si">Si</option>
-							<option value="No">No</option>
-						</select>
-					</div> -->
+					<div class="form-group row">
+						<label class="col-md-2" for="lugar">Lugar</label>
+						<input type="text" th:field="*{lugar}"class="form-control form-control-sm col-md-6" id="lugar"
+							   placeholder="Lugar">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></small>
+					</div>
 					
                    <div class="card-footer bg-dark">
-					<input type="submit" title="Crear Nuevo Baño" value="Guardar" class="btn btn-primary btn-sm"/>
+					<input type="submit" title="Crear Nuevo Sensor" value="Guardar" class="btn btn-primary btn-sm"/>
 					
 					</div>
 

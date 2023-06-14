@@ -27,6 +27,9 @@ public class ViewRouteHelper {
 	public final static String SENSORES_ESTACIONAMIENTO = "estacionamiento/listaEstacionamiento";
 	public final static String SENSOR_ESTACIONAMIENTO_EDITAR = "estacionamiento/editar";
 	public final static String REDIRECT_AGREGAR_SENSOR_ESTACIONAMIENTO = "agregarSensor";
-	public final static String REDIRECT_ESTACIONAMIENTO_LISTA = "listaEstacionamiento";
-	public final static String REDIRECT_ESTACIONAMIENTO = "redirect:/estacionamiento/listaEstacionamiento";
+	public final static String REDIRECT_ESTACIONAMIENTO_LISTA = "lista-lugares";
+	public final static String REDIRECT_ESTACIONAMIENTO = "redirect:/estacionamiento/lista-lugares";
+
+	//Evento
+	public final static String EVENTOS = "evento/listaEventos";
 }
