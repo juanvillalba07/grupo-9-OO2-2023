@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+</head>
+
+<body>
+	<link href="/css/image1.css" rel="stylesheet"/>
+	
+	<div class="container">
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white">Formulario: Agregar Sensor</div>
+			<div class="card-body">
+				<form action="#" th:action="@{/alumbrado/guardar-alumbrado}" th:object="${alumbrado}" method="post">
+					<div class="form-group row">
+						<label class="col-md-2" for="lugar">Lugar</label>
+						<input type="text" th:field="*{lugar}"class="form-control form-control-sm col-md-6" id="lugar"
+							placeholder="Lugar">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="luzAmbiente">Luz Ambiente</label>
+						<input type="text" th:field="*{luzAmbiente}"class="form-control form-control-sm col-md-6" id="luzAmbiente"
+							placeholder="LuzAmbiente">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('luzAmbiente')}" th:errors="*{luzAmbiente}"></small>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2" for="intensidad">Intensidad</label>
+						<input type="text" th:field="*{intensidad}"class="form-control form-control-sm col-md-6" id="intensidad"
+							placeholder="Intensidad">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('intensidad')}" th:errors="*{intensidad}"></small>
+					</div>
+                   <div class="card-footer bg-dark">
+					<input type="submit" title="Crear Nuevo Sensor Alumbrado" value="Guardar" class="btn btn-primary btn-sm"/>
+					
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+</body>
+
+</html>
