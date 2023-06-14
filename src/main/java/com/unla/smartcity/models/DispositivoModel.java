@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public abstract class DispositivoModel {
+public class DispositivoModel {
     protected Integer id;
     protected String nombre;
     protected boolean activo;

@@ -27,7 +27,12 @@
 						<input type="text" th:field="*{nombre}"class="form-control form-control-sm col-md-6" id="nombre"
 						th:value="${sensor.nombre}">
 						<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+						<input type="text" th:field="*{lugar}"class="form-control form-control-sm col-md-6" id="lugar"
+							   th:value="${sensor.lugar}">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('lugar')}" th:errors="*{lugar}"></small>
+
 					</div>
+
                    <div class="card-footer bg-dark">
 					<input type="submit" value="Guardar" class="btn btn-primary btn-sm"/>
 					</div>

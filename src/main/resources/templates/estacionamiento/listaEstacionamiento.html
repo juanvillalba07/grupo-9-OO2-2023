@@ -70,7 +70,8 @@
 					<thead>
 						<tr>
 							<th>ID</th>
-							<th>Nombre</th>
+							<th>Lugar</th>
+							<th>Nombre Dispositivo</th>
 							<th>Estado</th>
 							<th>Activo</th>
 						</tr>
@@ -78,6 +79,7 @@
 					<tbody>
 					<tr th:each="sensor : ${sensores}">
 						<td><span th:text="${sensor.id}" /></td>
+						<td><span th:text="${sensor.lugar}" /></td>
 						<td><span th:text="${sensor.nombre}" /></td>
 						<td><span th:text="${sensor.estado}" /></td>
 						<td><span th:text="${sensor.activo} ? 'Si' : 'No'" /></td>

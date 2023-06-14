@@ -14,4 +14,7 @@ import lombok.Setter;
 public class SensorEstacionamientoEntity extends DispositivoEntity {
     @Column
     private Estado estado;
+
+    @Column
+    private String lugar;
 }
