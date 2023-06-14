@@ -29,4 +29,15 @@ public class ViewRouteHelper {
 	public final static String REDIRECT_AGREGAR_SENSOR_ESTACIONAMIENTO = "agregarSensor";
 	public final static String REDIRECT_ESTACIONAMIENTO_LISTA = "listaEstacionamiento";
 	public final static String REDIRECT_ESTACIONAMIENTO = "redirect:/estacionamiento/listaEstacionamiento";
+
+
+	//Alumbrado
+	public final static String SENSOR_ALUMBRADO_LISTA = "alumbrado/listaAlumbrados";
+	public final static String SENSOR_ALUMBRADO_CREAR = "alumbrado/agregarSensorAlumbrado";
+	public final static String SENSOR_ALUMBRADO_EDITAR = "alumbrado/editar";
+	
+	//Redirecciones alumbrado
+	public final static String REDIRECT_ALUMBRADO_LISTA = "lista-alumbrado";
+	public final static String REDIRECT_ALUMBRADO_CREAR = "crear-alumbrado";
+	public final static String REDIRECT_ALUMBRADOS = "redirect:/alumbrado/lista-alumbrado";
 }
