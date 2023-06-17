@@ -1,6 +1,5 @@
 package com.unla.smartcity.services.implementation;
 
-import com.unla.smartcity.entities.SensorBanio;
 import com.unla.smartcity.entities.SensorEstacionamientoEntity;
 import com.unla.smartcity.enums.Estado;
 import com.unla.smartcity.models.SensorEstacionamientoModel;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service("estacionamientoService")
 public class EstacionamientoService implements IEstacionamientoService {

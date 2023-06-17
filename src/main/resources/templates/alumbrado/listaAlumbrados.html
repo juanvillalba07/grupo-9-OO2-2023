@@ -29,7 +29,7 @@
 						<a class="nav-link" href="/index">Inicio</a>
 					</li>
                     <li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/estacionamiento/lista-lugares">Sensores de estacionamiento</a>
+						<a class="nav-link active" aria-current="page" href="/alumbrado/lista-alumbrado">Sensores de Alumbramiento</a>
 					</li>
 
 				</ul>
@@ -59,11 +59,11 @@
 	</div>
 	<!-- CONTENIDO -->
 	<div class="container">
-		<h1>Vistas de Lugares</h1>
+		<h1>Vista de Alumbrados</h1>
 	</div>
 			<div class="container">
 				
-				<a class="btn btn-primary btn-sm" th:href="@{/estacionamiento/agregar-sensor}" title="Crear Nuevo Sensor">Nuevo sensor</a>
+				<a class="btn btn-primary btn-sm" th:href="@{/alumbrado/crear-alumbrado}" title="Crear Nuevo Sensor">Nuevo Sensor de Alumbrado</a>
 				<!-- <span th:text="${id}"></span> -->
 				
 				<table class="table table-dark table-borderless">
@@ -71,27 +71,31 @@
 						<tr>
 							<th>ID</th>
 							<th>Lugar</th>
-							<th>Nombre Dispositivo</th>
-							<th>Estado</th>
+							<th>Luz Ambiente</th>
+							<th>Intensidad</th>
 							<th>Activo</th>
 						</tr>
 					</thead>
 					<tbody>
-					<tr th:each="sensor : ${sensores}">
-						<td><span th:text="${sensor.id}" /></td>
-						<td><span th:text="${sensor.lugar}" /></td>
-						<td><span th:text="${sensor.nombre}" /></td>
-						<td><span th:text="${sensor.estado}" /></td>
-						<td><span th:text="${sensor.activo} ? 'Si' : 'No'" /></td>
+					<tr th:each="alumbrado : ${alumbrados}">
+						<td><span th:text="${alumbrado.id}" /></td>
+						<td><span th:text="${alumbrado.lugar}" /></td>
+						<td><span th:text="${alumbrado.luzAmbiente}" /></td>
+						<td><span th:text="${alumbrado.intensidad}" /></td>
+						<td><span th:text="${alumbrado.activo} ? 'Si' : 'No'" /></td>
 						<td>
-							<a class="btn btn-primary btn-sm" th:href="@{/estacionamiento/editar/{id}(id=${sensor.id})}" title="Editar Sensor" >Editar</a>
+							<a class="btn btn-primary btn-sm" th:href="@{/alumbrado/editar-alumbrado/{id}(id=${alumbrado.id})}" title="Editar Alumbrado" >Editar</a>
 						</td>
-						<td th:if="${sensor.activo}">
-							<a class="btn btn-danger btn-sm" th:href="@{/estacionamiento/desactivar-sensor/{id}(id=${sensor.id})}" onclick="return confirm('¿Estás seguro de que deseas desactivar 	el sensor?')">Eliminar</a>
+						<td th:if="${alumbrado.activo}">
+							<a class="btn btn-danger btn-sm" th:href="@{/alumbrado/desactivar-alumbrado/{id}(id=${alumbrado.id})}" 
+							onclick="return confirm('¿Estás seguro de que deseas desactivar el sensor?')">Desactivar</a>
 						</td>
-						<td th:unless="${sensor.activo}">
-							<a class="btn btn-success btn-sm" th:href="@{/estacionamiento/activar-sensor/{id}(id=${sensor.id})}" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
+						<td th:unless="${alumbrado.activo}">
+							<a class="btn btn-success btn-sm" th:href="@{/alumbrado/activar-alumbrado/{id}(id=${alumbrado.id})}" 
+							onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
 						</td>
+					
+					
 					</tr>
 					</tbody>
 				</table>
@@ -105,5 +109,4 @@
 		     </div>
 	        </footer>
 	
-     </body>
-</html>
+     </

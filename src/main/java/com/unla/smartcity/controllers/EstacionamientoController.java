@@ -68,8 +68,7 @@ public class EstacionamientoController {
         }
 
         estacionamientoService.agregarSensor(modelMapper.map(sensorEstacionamientoModel, SensorEstacionamientoEntity.class));
-        //System.out.println("Banio creado exitosamente!");
-        attribute.addFlashAttribute("success", "Baño Guardado con Exito!");
+        attribute.addFlashAttribute("success", "Sensor Guardado con Exito!");
         return new RedirectView(ViewRouteHelper.REDIRECT_ESTACIONAMIENTO_LISTA);
     }
 
@@ -81,7 +80,7 @@ public class EstacionamientoController {
             sensorEstacionamientoEntity.setNombre(sensorEstacionamientoModel.getNombre());
             estacionamientoService.actualizar(sensorEstacionamientoEntity);
 		}
-		return new RedirectView(ViewRouteHelper.REDIRECT_ESTACIONAMIENTO);
+		return new RedirectView(ViewRouteHelper.REDIRECT_ESTACIONAMIENTO_LISTA);
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")

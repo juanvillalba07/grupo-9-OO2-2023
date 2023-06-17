@@ -1,6 +1,7 @@
 package com.unla.smartcity.entities;
 
-import com.unla.smartcity.enums.Estado;
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.Getter;
@@ -8,13 +9,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-public class SensorEstacionamientoEntity extends DispositivoEntity {
-    @Column
-    private Estado estado;
-
-    @Column
+@Getter @Setter @NoArgsConstructor
+public class SensorAlumbradoEntity extends DispositivoEntity{
+        
+	@Column
     private String lugar;
+
+	@Column
+    private int luzAmbiente;
+    
+	@Column
+	private int intensidad;
+
 }

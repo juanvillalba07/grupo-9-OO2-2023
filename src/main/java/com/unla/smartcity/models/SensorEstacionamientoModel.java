@@ -10,4 +10,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SensorEstacionamientoModel extends DispositivoModel {
     private Estado estado;
+    private String lugar;
 }
