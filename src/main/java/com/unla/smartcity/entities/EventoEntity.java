@@ -23,6 +23,6 @@ public class EventoEntity {
     private LocalDateTime fechaHora;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="dispositivo_id", nullable=true)
+    @JoinColumn(name="dispositivo_id", nullable=false)
     private DispositivoEntity dispositivo;
 }

@@ -1,11 +1,9 @@
 package com.unla.smartcity.services;
 
-import com.unla.smartcity.entities.SensorBanio;
 import com.unla.smartcity.entities.SensorEstacionamientoEntity;
 import com.unla.smartcity.models.SensorEstacionamientoModel;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface IEstacionamientoService {
     public SensorEstacionamientoModel agregarSensor(SensorEstacionamientoEntity sensorEstacionamientoEntity);

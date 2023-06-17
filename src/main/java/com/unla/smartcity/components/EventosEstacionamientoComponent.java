@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Component
 public class EventosEstacionamientoComponent {
-
+/*
     @Autowired
     private IEstacionamientoService estacionamientoService;
     @Autowired
@@ -63,4 +63,5 @@ public class EventosEstacionamientoComponent {
         evento2.setDispositivo(sensor3);
         eventoService.agregarEvento(evento2);
     }
+ */
 }

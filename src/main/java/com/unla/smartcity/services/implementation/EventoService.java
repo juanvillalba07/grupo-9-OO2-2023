@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +34,15 @@ public class EventoService implements IEventoService {
         List<EventoModel> eventoModels = new ArrayList<>();
         eventoRepository.findAll().stream().forEach(evento ->{
             eventoModels.add(modelMapper.map(evento, EventoModel.class));
+        });
+        return eventoModels;
+    }
+
+    @Override
+    public List<EventoModel> getEventosByFecha(LocalDateTime desde, LocalDateTime hasta){
+        List<EventoModel> eventoModels = new ArrayList<>();
+        eventoRepository.getEventosByFecha(desde, hasta).stream().forEach(evnto ->{
+            eventoModels.add(modelMapper.map(evnto, EventoModel.class));
         });
         return eventoModels;
     }
