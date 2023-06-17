@@ -17,10 +17,10 @@
 	<div class="container">
 
 		<div class="card bg-light">
-			<div class="card-header bg-dark text-white">Formulario: Crear Baño</div>
+			<div class="card-header bg-dark text-white">Formulario: Agregar Sensor</div>
 			<div class="card-body">
 
-				<form action="#" th:action="@{/sensorBanio/save}" th:object="${banio}" method="post">
+				<form action="#" th:action="@{/sensorBanio/guardar}" th:object="${banio}" method="post">
 					<div class="form-group row">
 						<input type="hidden" name="id" th:value="${banio.id}">
 						<label class="col-md-2" for="edificio">Edificio</label>
@@ -47,11 +47,6 @@
 						 <small class="form-text text-danger" th:if="${#fields.hasErrors('horaFinalLimpieza')}" th:errors="*{horaFinalLimpieza}"></small> 
 					</div> 
                     
-                    <div class="form-group row">
-						<label class="col-md-2" for="libre">Libre?</label>
-						<input type="text" th:field="*{libre}"class="form-control form-control-sm col-md-6" id="libre" placeholder="Libre?">
-						<small class="form-text text-danger" th:if="${#fields.hasErrors('libre')}" th:errors="*{libre}"></small>
-					</div>
                     
 					<!-- <div class="form-group row">
 						<label class="col-md-2" for="libre">Libre?</label>
@@ -63,7 +58,7 @@
 					</div> -->
 					
                    <div class="card-footer bg-dark">
-					<input type="submit" title="Crear Nuevo Baño" value="Guardar" class="btn btn-primary btn-sm"/>
+					<input type="submit" title="Agregar Nuevo Sensor" value="Guardar" class="btn btn-primary btn-sm"/>
 					
 					</div>
 

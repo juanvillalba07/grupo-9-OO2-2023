@@ -5,13 +5,11 @@ import java.io.Serializable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.unla.smartcity.entities.SensorBanio;
-import com.unla.smartcity.models.SensorBanioModel;
+import com.unla.smartcity.entities.SensorBanioEntity;
 
 @Repository("sensorBanioRepository")
-public interface ISensorBanioRepository extends JpaRepository<SensorBanio, Serializable>{
+public interface ISensorBanioRepository extends JpaRepository<SensorBanioEntity, Serializable>{
     
-	public abstract SensorBanio findById(int id);
+	public abstract SensorBanioEntity findById(int id);
 
-	public abstract SensorBanioModel findByEdificio(String edificio);
 }

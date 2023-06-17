@@ -64,7 +64,7 @@
 	</div>
 			<div class="container">
 				
-				<a class="btn btn-primary btn-sm" th:href="@{/sensorBanio/crear}" title="Crear Nuevo Baño">Nuevo Baño</a>
+				<a class="btn btn-primary btn-sm" th:href="@{/sensorBanio/agregar-sensor}" title="Agregar Nuevo Sensor">Nuevo Sensor</a>
 				<!-- <span th:text="${id}"></span> -->
 				
 				<table class="table table-dark table-borderless">
@@ -75,9 +75,8 @@
 							<th>Turno</th>
 							<th>Hora Inicial de Limpieza</th>
 							<th>Hora Final de Limpieza</th>
-							<th>Libre?</th>
-							<th>Editar</th>
-							<th>Eliminar</th>
+							<th>Estado</th>
+							<th>Activo</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -87,14 +86,18 @@
 							<td th:text="${b.turno}" ></td>
 						    <td th:text="${b.horaInicialLimpieza}" ></td>
 						    <td th:text="${b.horaFinalLimpieza}" ></td>
-							<td th:text="${b.libre}" ></td>
+							<td th:text="${b.estado}" ></td>
+							<td><span th:text="${b.activo} ? 'Si' : 'No'" /></td>
 							<td>
-								<a class="btn btn-success btn-sm" th:href="@{/sensorBanio/update/{id}(id=${b.id})}" title="Editar Baño" >Editar</a>
+								<a class="btn btn-primary btn-sm" th:href="@{/sensorBanio/editar/{id}(id=${b.id})}" title="Editar Sensor" >Editar</a>
 							</td>
-							 <td>
-								<a class="btn btn-danger btn-sm" th:href="@{/sensorBanio/delete/{id}(id=${b.id})}" title="Eliminar Baño"
-								onclick="return confirm('Esta seguro de eliminar el baño?'); ">Eliminar</a>
+							 <td th:if="${b.activo}">
+								<a class="btn btn-danger btn-sm" th:href="@{/sensorBanio/desactivar-sensor/{id}(id=${b.id})}" title="Desactivar Sensor"
+								onclick="return confirm('¿Estás seguro de que deseas desactivar el sensor?'); ">Desactivar</a>
 							</td> 
+							<td th:unless="${b.activo}">
+							<a class="btn btn-success btn-sm" th:href="@{/sensorBanio/activar-sensor/{id}(id=${b.id})}" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
+						   </td>
 						</tr>
 					</tbody>
 				</table>

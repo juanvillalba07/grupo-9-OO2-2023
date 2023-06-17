@@ -26,32 +26,42 @@
 					
 					<li class="nav-item dropdown">
 						<a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-						class="nav-link dropdown-toggle" href="/sensorBanio/listaBanios" 
+						class="nav-link dropdown-toggle" href="#" 
 						id="navbarDropdownBlog">Dispositivos
 						</a>
+						<div aria-labelledby="navbarDropdownBlog" class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="/sensorBanio/listaBanios">Baños</a>
+					        <a class="dropdown-item" href="/estacionamiento/lista-lugares">Estacionamiento</a>
+						</div>
 					</li>
+					
 					<li class="nav-item dropdown">
 						<a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
-						   class="nav-link dropdown-toggle" href="/estacionamiento/lista-lugares"
-						   id="navbarDropdownBlog">Estacionamiento
-						</a>
+						   class="nav-link dropdown-toggle" href="#"
+						   id="navbarDropdownBlog">Reportes</a>
+						 <div aria-labelledby="navbarDropdownBlog" 
+						   class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="#">Ver Reportes</a>  
+						</div>
 					</li>
+					
 				</ul>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbarResponsive">
-
 				<ul class="navbar-nav ml-auto">
+					
 					<li class="nav-item dropdown">
 						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
 							data-toggle="dropdown" href="#" id="navbarDropdownBlog">Usuario 
 							<span th:text="${username}" />
 						</a>
+						<div aria-labelledby="navbarDropdownBlog" 
+						   class="dropdown-menu dropdown-menu-right">
+							<a class="dropdown-item" href="/logout">Cerrar Sesion</a> 
+						</div>
 					</li>
-
-					<li class="nav-item">
-						<a class="nav-link" href="/logout">Logout</a>
-					</li>
+					
 				</ul>
 			</div>
 		</div>
@@ -63,6 +73,10 @@
 			<p>Grupo 9 - OO2 -2023</p>
 		</div>
 	</footer>
+	
+	<!-- Bootstrap core JavaScript -->
+	<script src="/vendor/jquery/jquery.min.js"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   </body>
 </html>

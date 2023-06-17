@@ -2,18 +2,18 @@ package com.unla.smartcity.services;
 
 import java.util.List;
 
-import com.unla.smartcity.entities.SensorBanio;
-import com.unla.smartcity.models.SensorBanioModel;
+import com.unla.smartcity.entities.SensorBanioEntity;
 
 public interface ISensorBanioService {
 	
-	public List<SensorBanio> getAll();
+	public List<SensorBanioEntity> getAll();
 	   
-	public SensorBanio findById(int id);
-	
-	public SensorBanioModel findByEdificio(String edificio);
+	public SensorBanioEntity findById(int id);
 
-	public SensorBanio save(SensorBanio banio);
+	public SensorBanioEntity actualizar(SensorBanioEntity banio);
 	
-	public boolean remove(int id);
+	public void desactivar(int id);
+	
+    public void activar(int id);
+
 }

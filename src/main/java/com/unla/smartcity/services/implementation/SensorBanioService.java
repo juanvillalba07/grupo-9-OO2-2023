@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import com.unla.smartcity.entities.SensorBanio;
-import com.unla.smartcity.models.SensorBanioModel;
+import com.unla.smartcity.entities.SensorBanioEntity;
 import com.unla.smartcity.repositories.ISensorBanioRepository;
 import com.unla.smartcity.services.ISensorBanioService;
-
 
 @Service("sensorBanioService")
 public class SensorBanioService implements ISensorBanioService{
@@ -20,33 +18,34 @@ public class SensorBanioService implements ISensorBanioService{
 	private ISensorBanioRepository sensorBanioRepository;
 	
 	@Override
-	public List<SensorBanio> getAll() {
+	public List<SensorBanioEntity> getAll() {
 		return sensorBanioRepository.findAll();
 	}
 
 	@Override
-	public SensorBanio findById(int id) {
+	public SensorBanioEntity findById(int id) {
 		return sensorBanioRepository.findById(id);
 	}
 
 	@Override
-	public SensorBanioModel findByEdificio(String edificio) {
-		return sensorBanioRepository.findByEdificio(edificio);
-	}
-
-	@Override
-	public SensorBanio save(SensorBanio sensorBanio) {
+	public SensorBanioEntity actualizar(SensorBanioEntity sensorBanio) {
 		return sensorBanioRepository.save(sensorBanio);
 	}
 
 	@Override
-	public boolean remove(int id) {
-		try {
-			sensorBanioRepository.deleteById(id);
-			return true;
-		}catch (Exception e) {
-			return false;
-		}
+	public void desactivar(int id) {
+		SensorBanioEntity sensorBanio = findById(id);
+		sensorBanio.setActivo(false);
+		sensorBanioRepository.save(sensorBanio);
+		
+	}
+
+	@Override
+	public void activar(int id) {
+		SensorBanioEntity sensorBanio = findById(id);
+		sensorBanio.setActivo(true);
+		sensorBanioRepository.save(sensorBanio);
+		
 	}
 
 }

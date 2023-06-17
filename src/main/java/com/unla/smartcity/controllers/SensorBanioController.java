@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import com.unla.smartcity.entities.SensorBanio;
+import com.unla.smartcity.entities.SensorBanioEntity;
 import com.unla.smartcity.helpers.ViewRouteHelper;
 import com.unla.smartcity.models.SensorBanioModel;
 import com.unla.smartcity.services.ISensorBanioService;
@@ -37,7 +37,7 @@ public class SensorBanioController {
 	public ModelAndView index() {
        ModelAndView mAV = new ModelAndView(ViewRouteHelper.SENSOR_BANIO_LISTA);
 		
-		List<SensorBanio> banios = sensorBanioService.getAll();	
+		List<SensorBanioEntity> banios = sensorBanioService.getAll();	
 		
 		mAV.addObject("banios", banios);
 		mAV.addObject("banio", new SensorBanioModel());
@@ -45,7 +45,7 @@ public class SensorBanioController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/crear") //http://localhost:8080/sensorBanio/crear
+	@GetMapping("/agregar-sensor") //http://localhost:8080/sensorBanio/agregar-sensor
 	public ModelAndView crear() {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.SENSOR_BANIO_CREAR);
 		mAV.addObject("banio", new SensorBanioModel());
@@ -53,31 +53,12 @@ public class SensorBanioController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@PostMapping("/save")
-	public RedirectView guardar(@Valid @ModelAttribute("sensorBanio") SensorBanio sensorBanio, BindingResult result, 
-			Model model, RedirectAttributes attribute) {
-		
-		List<SensorBanio> banios = sensorBanioService.getAll();	
-		
-		if(result.hasErrors()) {
-			model.addAttribute("banio", sensorBanio);
-			model.addAttribute("banios", banios);
-			System.out.println("Existieron errores en el formulario!");
-			return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIO_CREAR);
-		}
-		sensorBanioService.save(sensorBanio);
-		//System.out.println("Banio creado exitosamente!");
-		attribute.addFlashAttribute("success", "Baño Guardado con Exito!");
-		return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIO_LISTA);
-	}
-	
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/update/{id}") //http://localhost:8080/sensorBanio/update
+	@GetMapping("/editar/{id}") //http://localhost:8080/sensorBanio/editar
 	public String editar(@PathVariable("id") int idBanio, Model model, 
 			RedirectAttributes attribute) {
 		 //ModelAndView mAV = new ModelAndView(ViewRouteHelper.BANIO_UPDATE);
 		
-		SensorBanio banio = null;
+		SensorBanioEntity banio = null;
 		
 		if(idBanio > 0 ) {
 	      banio = sensorBanioService.findById(idBanio);
@@ -89,27 +70,45 @@ public class SensorBanioController {
 	    }
 		
 	    model.addAttribute("banio", banio);
-	    System.out.println("Banio editado exitosamente!");
+	    System.out.println("Sensor Editado Exitosamente!");
 	    return ViewRouteHelper.SENSOR_BANIO_EDITAR;
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/delete/{id}")
-	public String eliminar(@PathVariable("id") int idBanio, RedirectAttributes attribute) {
-
-        SensorBanio banio = null;
+	@PostMapping("/guardar")
+	public RedirectView guardar(@Valid @ModelAttribute("sensorBanio") SensorBanioEntity sensorBanio, BindingResult result, 
+			Model model, RedirectAttributes attribute) {
 		
-		if(idBanio > 0 ) {
-	      banio = sensorBanioService.findById(idBanio);
+		List<SensorBanioEntity> banios = sensorBanioService.getAll();	
+		
+		if(result.hasErrors()) {
+			model.addAttribute("banio", sensorBanio);
+			model.addAttribute("banios", banios);
+			System.out.println("Existieron errores en el formulario!");
+			return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIO_CREAR);
 		}
-	    
-		if(banio == null) {
-	      attribute.addFlashAttribute("error", "ATENCION: El ID del Baño no existe");
-	      return ViewRouteHelper.REDIRECT_SENSOR_BANIOS ;
-	    }
-		sensorBanioService.remove(idBanio); //lo  borro por ID, tendria que inactivarlo
+		sensorBanioService.actualizar(sensorBanio);
+		
+		attribute.addFlashAttribute("success", "Sensor Guardado con Exito!");
+		return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIO_LISTA);
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/desactivar-sensor/{id}")
+	public String desactivar(@PathVariable("id") int idBanio, RedirectAttributes attribute) {
+
+        sensorBanioService.desactivar(idBanio); //lo  borro por ID, tendria que inactivarlo
 		//banio.setLibre(false);
-		attribute.addFlashAttribute("warning", "Baño Eliminado con Exito!");
+		attribute.addFlashAttribute("success", "Sensor Desactivado con Exito!");
+		return ViewRouteHelper.REDIRECT_SENSOR_BANIOS;
+	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/activar-sensor/{id}")
+	public String activar(@PathVariable("id") int idBanio, RedirectAttributes attribute) {
+
+        sensorBanioService.activar(idBanio); 
+		attribute.addFlashAttribute("success", "Sensor Activado con Exito!");
 		return ViewRouteHelper.REDIRECT_SENSOR_BANIOS;
 	}
 	
