@@ -11,58 +11,31 @@
 </head>
 
 <body>
-<!-- Navigation -->
+
 <link href="/css/image1.css" rel="stylesheet"/>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a class="navbar-brand" href="#">UNLa</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<div class="container">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="/index">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/estacionamiento/lista-lugares">Sensores de estacionamiento</a>
-                </li>
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white">Consulta de eventos</div>
+        <div class="card-body">
 
-            </ul>
+            <form action="#" th:action="@{/evento/listaEventos}" method="get">
+                <div class="form-group row">
+                    <label for="fechaInicio">Fecha de inicio:</label>
+                    <input type="datetime-local" id="fechaInicio" name="fechaInicio" required>
+                </div>
+                <div class="form-group row">
+                    <label for="fechaFin">Fecha de fin:</label>
+                    <input type="datetime-local" id="fechaFin" name="fechaFin" required>
+                </div>
+
+                <div class="card-footer bg-dark">
+                    <input type="submit" value="Consultar" class="btn btn-primary btn-sm"/>
+                </div>
+            </form>
         </div>
     </div>
-</nav>
-
-<!-- MENSAJES -->
-<div class="alert alert-success alert-dismissable" th:if="${success != null}">
-    <label th:text="${success}"></label>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-</div>
-
-<div class="alert alert-danger alert-dismissable" th:if="${error != null}">
-    <label th:text="${error}"></label>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-</div>
-
-<div class="alert alert-warning alert-dismissable" th:if="${warning != null}">
-    <label th:text="${warning}"></label>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-</div>
-
-<div class="alert alert-info alert-dismissable" th:if="${info != null}">
-    <label th:text="${info}"></label>
-    <button type="button" class="close" data-dismiss="alert">&times;</button>
-</div>
-<!-- CONTENIDO -->
-<div class="container">
-    <h1>Vistas de Lugares</h1>
-</div>
-<div class="container">
-
     <table class="table table-dark table-borderless">
         <thead>
         <tr>
@@ -79,15 +52,11 @@
         </tr>
         </tbody>
     </table>
-
 </div>
 
 
-<footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
-    <div class="container">
-        <p >Grupo 9 - OO2 -2023</p>
-    </div>
-</footer>
+
 
 </body>
+
 </html>
