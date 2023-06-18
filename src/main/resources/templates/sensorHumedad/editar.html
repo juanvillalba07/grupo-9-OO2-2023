@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="utf-8" />
+    <title>UNLa</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+
+</head>
+
+<body>
+
+<link href="/css/image1.css" rel="stylesheet"/>
+
+<div class="container">
+
+    <div class="card bg-light">
+        <div class="card-header bg-dark text-white">Formulario: Editar sensor</div>
+        <div class="card-body">
+
+            <form action="#" th:action="@{/regado/guardar-medicion}" th:object="${medicion}" method="post">
+                <div class="form-group row">
+                    <input type="hidden" name="id" th:value="${medicion.id}">
+                    <label class="col-md-2" for="nombre">Nombre sensor</label>
+                    <input type="text" th:field="*{nombre}"class="form-control form-control-sm col-md-6" id="nombre"
+                           placeholder="Nombre">
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-2" for="humedadActual">Humedad Actual</label>
+                    <input type="text" th:field="*{humedadActual}"class="form-control form-control-sm col-md-6" id="humedadActual"
+                           placeholder="Humedad">
+                </div>
+        </div>
+
+        <div class="card-footer bg-dark">
+            <input type="submit" title="Agregar Nuevo Sensor" value="Guardar" class="btn btn-primary btn-sm"/>
+
+        </div>
+
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

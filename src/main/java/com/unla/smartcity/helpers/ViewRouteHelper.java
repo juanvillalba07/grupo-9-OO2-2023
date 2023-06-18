@@ -42,4 +42,17 @@ public class ViewRouteHelper {
 	public final static String REDIRECT_ALUMBRADOS = "redirect:/alumbrado/lista-alumbrado";
 	//Evento
 	public final static String EVENTOS = "evento/listaEventos";
+
+	//Sensor Humedad
+	//Views
+	public final static String SENSOR_HUMEDAD_LISTA = "sensorHumedad/listaSensorHumedad";
+	public final static String SENSOR_HUMEDAD_CREAR = "sensorHumedad/agregarSensorHumedad";
+	public final static String SENSOR_HUMEDAD_EDITAR = "sensorHumedad/editar";
+	//Redirects
+	public final static String SENSOR_HUMEDAD_LISTA_URL = "/regado/lista-mediciones";
+	//Variables
+	public final static String SENSOR_HUMEDAD_LISTA_REDIRECT = "redirect:/regado/lista-mediciones";
+	public final static int UMBRAL_HUMEDAD = 60;
+
+
 }

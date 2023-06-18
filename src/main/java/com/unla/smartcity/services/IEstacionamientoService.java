@@ -1,6 +1,6 @@
 package com.unla.smartcity.services;
 
-import com.unla.smartcity.entities.SensorBanio;
+import com.unla.smartcity.entities.SensorBanioEntity;
 import com.unla.smartcity.entities.SensorEstacionamientoEntity;
 import com.unla.smartcity.models.SensorEstacionamientoModel;
 
