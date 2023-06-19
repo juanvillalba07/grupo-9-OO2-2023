@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+
+</head>
+
+<body>
+
+	<link href="/css/image1.css" rel="stylesheet" />
+
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white">Consulta de eventos</div>
+			<div class="card-body">
+
+				<form action="#" th:action="@{/evento/listaEventosSensorBanio}" method="get">
+					<div class="form-group row">
+						<label for="fechaInicio">Fecha de inicio:</label>
+						<input type="datetime-local" id="fechaInicio" name="fechaInicio" required>
+					</div>
+					<div class="form-group row">
+						<label for="fechaFin">Fecha de fin:</label>
+						<input type="datetime-local" id="fechaFin" name="fechaFin" required>
+					</div>
+
+					<div class="card-footer bg-dark">
+						<input type="submit" value="Consultar" class="btn btn-primary btn-sm" />
+					</div>
+				</form>
+			</div>
+		</div>
+		<table class="table table-dark table-borderless">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Descripcion</th>
+					<th>Fecha y hora</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="evento : ${eventos}">
+					<td><span th:text="${evento.id}" /></td>
+					<td><span th:text="${evento.descripcion}" /></td>
+					<td><span th:text="${evento.fechaHora}" /></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+</body>
+
+</html>
