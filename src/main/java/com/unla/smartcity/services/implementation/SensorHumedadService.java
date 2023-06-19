@@ -42,7 +42,7 @@ public class SensorHumedadService implements ISensorHumedadService {
     };
 
     public void calcularEstado(SensorHumedadEntity sensorHumedadEntity) {
-        if (sensorHumedadEntity.getHumedadActual()> ViewRouteHelper.UMBRAL_HUMEDAD) {
+        if (sensorHumedadEntity.getHumedadActual()> 60) {
             sensorHumedadEntity.setEstado(false);
         } else {
             sensorHumedadEntity.setEstado(true);

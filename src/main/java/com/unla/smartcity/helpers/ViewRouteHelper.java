@@ -52,7 +52,6 @@ public class ViewRouteHelper {
 	public final static String SENSOR_HUMEDAD_LISTA_URL = "/regado/lista-mediciones";
 	//Variables
 	public final static String SENSOR_HUMEDAD_LISTA_REDIRECT = "redirect:/regado/lista-mediciones";
-	public final static int UMBRAL_HUMEDAD = 60;
 
 
 }
