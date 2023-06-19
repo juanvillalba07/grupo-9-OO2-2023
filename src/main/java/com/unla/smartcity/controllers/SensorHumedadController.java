@@ -47,9 +47,13 @@ public class SensorHumedadController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/guardar-medicion")
-    public RedirectView create (@ModelAttribute("medicion") SensorHumedadEntity sensorHumedadEntity) {
-        sensorHumedadService.calcularEstado(sensorHumedadEntity);
-        sensorHumedadService.insertOrUpdate(sensorHumedadEntity);
+    public RedirectView create (@Valid @ModelAttribute("medicion") SensorHumedadEntity sensorHumedadEntity, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new RedirectView(ViewRouteHelper.SENSOR_HUMEDAD_CREAR_URL);
+        } else {
+            sensorHumedadService.calcularEstado(sensorHumedadEntity);
+            sensorHumedadService.insertOrUpdate(sensorHumedadEntity);
+        }
         return new RedirectView(ViewRouteHelper.SENSOR_HUMEDAD_LISTA_URL);
     }
 
