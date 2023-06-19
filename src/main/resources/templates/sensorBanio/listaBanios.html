@@ -12,7 +12,7 @@
 
 <body>
 	<!-- Navigation -->
-	<link href="/css/image1.css" rel="stylesheet"/>
+	<link href="/css/image3.css" rel="stylesheet"/>
 	
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<div class="container">
@@ -70,7 +70,6 @@
 				<table class="table table-dark table-borderless">
 					<thead>
 						<tr>
-							<th>ID</th>
 							<th>Edificio</th>
 							<th>Turno</th>
 							<th>Hora Inicial de Limpieza</th>
@@ -81,7 +80,6 @@
 					</thead>
 					<tbody>
 						<tr th:each="b : ${banios}">
-							<td scope="row" th:text="${b.id}" ></td>
 							<td th:text="${b.edificio}" ></td>
 							<td th:text="${b.turno}" ></td>
 						    <td th:text="${b.horaInicialLimpieza}" ></td>
