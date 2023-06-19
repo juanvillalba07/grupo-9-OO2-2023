@@ -38,9 +38,9 @@ public class EventosSensorHumedadComponent {
                 sensorHumedadService.calcularEstado(sensor);
                 sensorHumedadService.insertOrUpdate(sensor);
                 if (sensor.getHumedadActual()>60) {
-                    evento.setDescripcion("Sensor en reposo");
+                    evento.setDescripcion("Sensor en reposo, humedad: "+sensor.getHumedadActual()+"%");
                 } else {
-                    evento.setDescripcion("Regadores activados");
+                    evento.setDescripcion("Regadores activados, humedad: "+sensor.getHumedadActual()+"%");
                 }
                 if (sensor.getHumedadActual()>100) {
                     sensor.setHumedadActual(100);
