@@ -28,24 +28,25 @@ public class SensorBanioService implements ISensorBanioService{
 	}
 
 	@Override
-	public SensorBanioEntity actualizar(SensorBanioEntity sensorBanio) {
-		return sensorBanioRepository.save(sensorBanio);
+	public SensorBanioEntity actualizar(SensorBanioEntity sensorBanioEntity) {
+		return sensorBanioRepository.save(sensorBanioEntity);
 	}
 
 	@Override
 	public void desactivar(int id) {
-		SensorBanioEntity sensorBanio = findById(id);
-		sensorBanio.setActivo(false);
-		sensorBanioRepository.save(sensorBanio);
+		SensorBanioEntity sensorBanioEntity = findById(id);
+		sensorBanioEntity.setActivo(false);
+		sensorBanioRepository.save(sensorBanioEntity);
 		
 	}
 
 	@Override
 	public void activar(int id) {
-		SensorBanioEntity sensorBanio = findById(id);
-		sensorBanio.setActivo(true);
-		sensorBanioRepository.save(sensorBanio);
+		SensorBanioEntity sensorBanioEntity = findById(id);
+		sensorBanioEntity.setActivo(true);
+		sensorBanioRepository.save(sensorBanioEntity);
 		
 	}
+
 
 }
