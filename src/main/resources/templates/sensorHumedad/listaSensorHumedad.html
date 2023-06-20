@@ -91,19 +91,6 @@
             <td th:unless="${medicion.activo}">
                 <a class="btn btn-success btn-sm" th:href="@{/regado/activar-sensor/{id}(id=${medicion.id})}" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
             </td>
-
-            <!--<td>
-                <a class="btn btn-primary btn-sm" th:href="@{/alumbrado/editar-alumbrado/{id}(id=${alumbrado.id})}" title="Editar Alumbrado" >Editar</a>
-            </td>
-            <td th:if="${alumbrado.activo}">
-                <a class="btn btn-danger btn-sm" th:href="@{/alumbrado/desactivar-alumbrado/{id}(id=${alumbrado.id})}"
-                   onclick="return confirm('¿Estás seguro de que deseas desactivar el sensor?')">Desactivar</a>
-            </td>
-            <td th:unless="${alumbrado.activo}">
-                <a class="btn btn-success btn-sm" th:href="@{/alumbrado/activar-alumbrado/{id}(id=${alumbrado.id})}"
-                   onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
-            </td>-->
-
         </tr>
         </tbody>
     </table>

@@ -3,6 +3,7 @@ package com.unla.smartcity.components;
 import com.unla.smartcity.entities.EventoEntity;
 import com.unla.smartcity.entities.SensorHumedadEntity;
 import com.unla.smartcity.services.IEventoService;
+import com.unla.smartcity.services.ISensorHumedadService;
 import com.unla.smartcity.services.implementation.SensorHumedadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,7 +17,7 @@ import java.util.Random;
 public class EventosSensorHumedadComponent {
     @Autowired
     @Qualifier("sensorHumedadService")
-    SensorHumedadService sensorHumedadService;
+    ISensorHumedadService sensorHumedadService;
     @Autowired
     @Qualifier("eventoService")
     IEventoService eventoService;

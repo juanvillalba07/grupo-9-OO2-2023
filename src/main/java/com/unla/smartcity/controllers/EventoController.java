@@ -2,6 +2,7 @@ package com.unla.smartcity.controllers;
 
 import com.unla.smartcity.helpers.ViewRouteHelper;
 import com.unla.smartcity.models.EventoModel;
+import com.unla.smartcity.models.SensorHumedadModel;
 import com.unla.smartcity.services.IEventoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -43,4 +45,5 @@ public class EventoController {
         List<EventoModel> eventoModels = eventoService.getEventosByFecha(fechaInicio, fechaFin);
         model.addAttribute("eventos", eventoModels);
     }
+
 }
