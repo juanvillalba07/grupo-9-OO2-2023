@@ -1,4 +1,4 @@
-package com.unla.smartcity.components;
+/*package com.unla.smartcity.components;
 
 import java.time.LocalDateTime;
 
@@ -63,3 +63,4 @@ public class EventosSensorBanioComponent {
     }
  
 }
+*/

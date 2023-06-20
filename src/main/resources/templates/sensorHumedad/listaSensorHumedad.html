@@ -89,7 +89,7 @@
                    onclick="return confirm('¿Estás seguro de que deseas desactivar el sensor?'); ">Desactivar</a>
             </td>
             <td th:unless="${medicion.activo}">
-                <a class="btn btn-success btn-sm" th:href="@{/regado/activar-sensor/{id}(id=${medicion.id})}" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
+                <a class="btn btn-success btn-sm" th:href="@{/regado/activar-sensor/{id}(id=${medicion.id})}" title="Activar Sensor" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
             </td>
         </tr>
         </tbody>

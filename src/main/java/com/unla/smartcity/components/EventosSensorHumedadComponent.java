@@ -24,7 +24,7 @@ public class EventosSensorHumedadComponent {
     private final static int segundo = 1000;
     public final static int minuto = segundo*60;
 
-    @Scheduled(fixedDelay=minuto)
+    @Scheduled(fixedDelay=segundo*5)
     public void medicionDeHumedad () {
         List<SensorHumedadEntity> sensores = sensorHumedadService.getAll();
         Random random = new Random();

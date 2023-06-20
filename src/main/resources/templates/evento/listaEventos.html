@@ -39,14 +39,14 @@
     <table class="table table-dark table-borderless">
         <thead>
         <tr>
-            <th>ID</th>
+            <th>Nombre del Dispositivo</th>
             <th>Descripcion</th>
             <th>Fecha y hora</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="evento : ${eventos}">
-            <td><span th:text="${evento.id}" /></td>
+            <td><span th:text="${evento.dispositivo.nombre}" /></td>
             <td><span th:text="${evento.descripcion}" /></td>
             <td><span th:text="${evento.fechaHora}" /></td>
         </tr>

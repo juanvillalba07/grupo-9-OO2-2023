@@ -9,6 +9,7 @@ import com.unla.smartcity.models.SensorHumedadModel;
 import com.unla.smartcity.services.ISensorAlumbradoService;
 import com.unla.smartcity.services.ISensorHumedadService;
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,6 +29,7 @@ public class SensorHumedadController {
     @Autowired
     @Qualifier("sensorHumedadService")
     private ISensorHumedadService sensorHumedadService;
+    private ModelMapper modelMapper = new ModelMapper();
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/lista-mediciones")
@@ -47,12 +49,12 @@ public class SensorHumedadController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/guardar-medicion")
-    public RedirectView create (@Valid @ModelAttribute("medicion") SensorHumedadEntity sensorHumedadEntity, BindingResult bindingResult) {
+    public RedirectView create (@Valid @ModelAttribute("medicion") SensorHumedadModel sensorHumedadModel, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new RedirectView(ViewRouteHelper.SENSOR_HUMEDAD_CREAR_URL);
         } else {
-            sensorHumedadService.calcularEstado(sensorHumedadEntity);
-            sensorHumedadService.insertOrUpdate(sensorHumedadEntity);
+            sensorHumedadService.calcularEstado(modelMapper.map(sensorHumedadModel, SensorHumedadEntity.class));
+            sensorHumedadService.insertOrUpdate(modelMapper.map(sensorHumedadModel, SensorHumedadEntity.class));
         }
         return new RedirectView(ViewRouteHelper.SENSOR_HUMEDAD_LISTA_URL);
     }
@@ -61,8 +63,8 @@ public class SensorHumedadController {
     @GetMapping("/editar/{id}")
     public ModelAndView editar(@PathVariable("id") int id) {
         ModelAndView mV = new ModelAndView(ViewRouteHelper.SENSOR_HUMEDAD_EDITAR);
-        SensorHumedadEntity medicion = sensorHumedadService.findById(id);
-        mV.addObject("medicion", medicion);
+        SensorHumedadEntity sensorEntity = sensorHumedadService.findById(id);
+        mV.addObject("medicion", modelMapper.map(sensorEntity, SensorHumedadModel.class));
         return mV;
     }
 
