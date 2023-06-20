@@ -34,27 +34,45 @@ public class SensorAlumbradoService implements ISensorAlumbradoService {
 	}
 
 	@Override
-	public SensorAlumbradoEntity save(SensorAlumbradoEntity sensorAlumbrado) {
-		return sensorAlumbradoRepository.save(sensorAlumbrado);
-	}
-
-	@Override
 	public void desactivar(int id) {
 		SensorAlumbradoEntity sensorAlumbradoEntity = findById(id);
-	    sensorAlumbradoEntity.setActivo(false);
-	    sensorAlumbradoRepository.save(sensorAlumbradoEntity);
+		sensorAlumbradoEntity.setActivo(false);
+		sensorAlumbradoRepository.save(sensorAlumbradoEntity);
 	}
 
 	@Override
 	public void activar(int id) {
 		SensorAlumbradoEntity sensorAlumbradoEntity = findById(id);
-	    sensorAlumbradoEntity.setActivo(true);
-	    sensorAlumbradoRepository.save(sensorAlumbradoEntity);		
+		sensorAlumbradoEntity.setActivo(true);
+		sensorAlumbradoRepository.save(sensorAlumbradoEntity);
 	}
 
 	@Override
-	public void actualizar(SensorAlumbradoEntity sensorAlumbrado) {
+	public void InsertOrUpdate(SensorAlumbradoEntity sensorAlumbrado) {
 		sensorAlumbradoRepository.save(sensorAlumbrado);
 	}
-	
+
+	public void calcularEstado(SensorAlumbradoEntity sensorAlumbrado) {
+		if (sensorAlumbrado.getLuzAmbiente() <= 7) {
+			sensorAlumbrado.setEstado(true);
+		} else {
+			sensorAlumbrado.setEstado(false);
+		}
+	}
+
+    public String calcularIntensidad(SensorAlumbradoEntity sensorAlumbrado) {
+    	String mensajeAEvento = null;
+		if (sensorAlumbrado.getLuzAmbiente() <= 3) {
+			sensorAlumbrado.setIntensidad(100);
+			mensajeAEvento= "Prender Luz en " + sensorAlumbrado.getLugar() + " al " + sensorAlumbrado.getIntensidad() + "%";
+		} else if (sensorAlumbrado.getLuzAmbiente() <= 7) {
+			sensorAlumbrado.setIntensidad(50);
+			mensajeAEvento="Prender Luz en " + sensorAlumbrado.getLugar() + " al " + sensorAlumbrado.getIntensidad() + "%";
+		} else {
+			sensorAlumbrado.setIntensidad(0);
+			mensajeAEvento="Apagar Luz en " + sensorAlumbrado.getLugar();
+		}
+		
+		return mensajeAEvento;
+    }
 }

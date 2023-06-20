@@ -18,6 +18,12 @@
 			<div class="card-body">
 				<form action="#" th:action="@{/alumbrado/guardar-alumbrado}" th:object="${alumbrado}" method="post">
 					<div class="form-group row">
+						<label class="col-md-2" for="nombre">Nombre sensor</label>
+						<input type="text" th:field="*{nombre}"class="form-control form-control-sm col-md-6" id="nombre"
+							placeholder="Nombre">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
+					</div>
+					<div class="form-group row">
 						<label class="col-md-2" for="lugar">Lugar</label>
 						<input type="text" th:field="*{lugar}"class="form-control form-control-sm col-md-6" id="lugar"
 							placeholder="Lugar">
@@ -29,12 +35,7 @@
 							placeholder="LuzAmbiente">
 						<small class="form-text text-danger" th:if="${#fields.hasErrors('luzAmbiente')}" th:errors="*{luzAmbiente}"></small>
 					</div>
-					<div class="form-group row">
-						<label class="col-md-2" for="intensidad">Intensidad</label>
-						<input type="text" th:field="*{intensidad}"class="form-control form-control-sm col-md-6" id="intensidad"
-							placeholder="Intensidad">
-						<small class="form-text text-danger" th:if="${#fields.hasErrors('intensidad')}" th:errors="*{intensidad}"></small>
-					</div>
+
                    <div class="card-footer bg-dark">
 					<input type="submit" title="Crear Nuevo Sensor Alumbrado" value="Guardar" class="btn btn-primary btn-sm"/>
 					

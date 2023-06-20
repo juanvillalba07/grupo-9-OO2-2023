@@ -37,7 +37,7 @@ public class ViewRouteHelper {
 	public final static String SENSOR_ALUMBRADO_CREAR = "alumbrado/agregarSensorAlumbrado";
 	public final static String SENSOR_ALUMBRADO_EDITAR = "alumbrado/editar";
 
-	//Redirecciones de Alumbrado
+	//Redirecciones alumbrado
 	public final static String REDIRECT_ALUMBRADO_LISTA = "lista-alumbrado";
 	public final static String REDIRECT_ALUMBRADO_CREAR = "crear-alumbrado";
 	public final static String REDIRECT_ALUMBRADOS = "redirect:/alumbrado/lista-alumbrado";

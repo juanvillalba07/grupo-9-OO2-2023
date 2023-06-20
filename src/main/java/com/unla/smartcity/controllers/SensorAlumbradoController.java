@@ -27,22 +27,22 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/alumbrado")
 public class SensorAlumbradoController {
-	
+
 	@Autowired
 	@Qualifier("sensorAlumbradoService")
 	private ISensorAlumbradoService sensorAlumbradoService;
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/lista-alumbrado") 
+	@GetMapping("/lista-alumbrado")
 	public ModelAndView index() {
 		ModelAndView mV = new ModelAndView(ViewRouteHelper.SENSOR_ALUMBRADO_LISTA);
-		
+
 		mV.addObject("alumbrados", sensorAlumbradoService.getAll());
 		return mV;
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/crear-alumbrado") 
+	@GetMapping("/crear-alumbrado")
 	public ModelAndView crear() {
 		ModelAndView mV = new ModelAndView(ViewRouteHelper.SENSOR_ALUMBRADO_CREAR);
 		mV.addObject("alumbrado", new SensorAlumbradoModel());
@@ -51,8 +51,8 @@ public class SensorAlumbradoController {
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/guardar-alumbrado")
-	public RedirectView guardar(@Valid @ModelAttribute("sensorAlumbrado") SensorAlumbradoEntity 
-			sensorAlumbrado, BindingResult result, Model model, RedirectAttributes attribute) {
+	public RedirectView guardar(@Valid @ModelAttribute("sensorAlumbrado") SensorAlumbradoEntity sensorAlumbrado,
+			BindingResult result, Model model, RedirectAttributes attribute) {
 
 		List<SensorAlumbradoEntity> alumbrados = sensorAlumbradoService.getAll();
 
@@ -62,13 +62,13 @@ public class SensorAlumbradoController {
 			System.out.println("Existieron errores en el formulario!");
 			return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADO_CREAR);
 		}
-		sensorAlumbradoService.save(sensorAlumbrado);
+		sensorAlumbradoService.InsertOrUpdate(sensorAlumbrado);
 		attribute.addFlashAttribute("success", "Alumbrado Guardado con Exito!");
 		return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADO_LISTA);
 	}
 
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@GetMapping("/editar-alumbrado/{id}") // http://localhost:8080/sensorBanio/update
+	@GetMapping("/editar-alumbrado/{id}")
 	public String editar(@PathVariable("id") int idAlumbrado, Model model, RedirectAttributes attribute) {
 		SensorAlumbradoEntity alumbrado = null;
 
@@ -77,25 +77,26 @@ public class SensorAlumbradoController {
 		}
 		if (alumbrado == null) {
 			attribute.addFlashAttribute("error", "ATENCION: El ID del Alumbrado no existe");
-			return ViewRouteHelper.REDIRECT_ALUMBRADO_LISTA;
+			return ViewRouteHelper.REDIRECT_ALUMBRADOS;
 		}
 		model.addAttribute("alumbrado", alumbrado);
 		System.out.println("Alumbrado editado exitosamente!");
-		return ViewRouteHelper.REDIRECT_ALUMBRADOS;
+		return ViewRouteHelper.SENSOR_ALUMBRADO_EDITAR;
 	}
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/desactivar-alumbrado/{id}")
-    public RedirectView desactivar(@PathVariable("id") int idAlumbrado, RedirectAttributes attribute) {
-        sensorAlumbradoService.desactivar(idAlumbrado);
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/desactivar-alumbrado/{id}")
+	public RedirectView desactivar(@PathVariable("id") int idAlumbrado, RedirectAttributes attribute) {
+		sensorAlumbradoService.desactivar(idAlumbrado);
 		attribute.addFlashAttribute("warning", "Alumbrado desactivado!");
-        return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADOS);
-    }
+		return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADOS);
+	}
 
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
-    @GetMapping("/activar-alumbrado/{id}")
-    public RedirectView activar(@PathVariable("id") int idAlumbrado, RedirectAttributes attribute) {
-        sensorAlumbradoService.activar(idAlumbrado);
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/activar-alumbrado/{id}")
+	public RedirectView activar(@PathVariable("id") int idAlumbrado, RedirectAttributes attribute) {
+		sensorAlumbradoService.activar(idAlumbrado);
 		attribute.addFlashAttribute("warning", "Alumbrado activado!");
-        return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADOS);
-    }}
+		return new RedirectView(ViewRouteHelper.REDIRECT_ALUMBRADOS);
+	}
+}

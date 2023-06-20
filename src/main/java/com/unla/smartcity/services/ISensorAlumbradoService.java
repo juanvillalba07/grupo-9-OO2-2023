@@ -12,12 +12,16 @@ public interface ISensorAlumbradoService {
 	public SensorAlumbradoEntity findById(int id);
 	
 	public SensorAlumbradoModel findByLugar(String lugar);
-
-	public SensorAlumbradoEntity save(SensorAlumbradoEntity sensorAlumbrado);
+	
+    public void InsertOrUpdate(SensorAlumbradoEntity sensorAlumbrado);
 	
 	public void desactivar(int id);
 	
     public void activar(int id);
+       
+    public String calcularIntensidad(SensorAlumbradoEntity sensorAlumbrado);
     
-    public void actualizar(SensorAlumbradoEntity sensorAlumbrado);
+    public void calcularEstado(SensorAlumbradoEntity sensorAlumbrado);
+
+
 }

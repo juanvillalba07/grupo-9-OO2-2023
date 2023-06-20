@@ -70,6 +70,7 @@
 					<thead>
 						<tr>
 							<th>ID</th>
+							<th>Nombre</th>
 							<th>Lugar</th>
 							<th>Luz Ambiente</th>
 							<th>Intensidad</th>
@@ -79,6 +80,7 @@
 					<tbody>
 					<tr th:each="alumbrado : ${alumbrados}">
 						<td><span th:text="${alumbrado.id}" /></td>
+						<td><span th:text="${alumbrado.nombre}" /></td>
 						<td><span th:text="${alumbrado.lugar}" /></td>
 						<td><span th:text="${alumbrado.luzAmbiente}" /></td>
 						<td><span th:text="${alumbrado.intensidad}" /></td>
@@ -109,4 +111,6 @@
 		     </div>
 	        </footer>
 	
-     </
+	</body>
+
+</html>
