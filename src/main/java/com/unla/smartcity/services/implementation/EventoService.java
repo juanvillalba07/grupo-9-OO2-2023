@@ -48,6 +48,15 @@ public class EventoService implements IEventoService {
     }
 
     @Override
+    public List<EventoModel> findByNombreDispositivo(String nombre){
+		List<EventoModel> models = new ArrayList<>();
+		for (EventoEntity evento : eventoRepository.findByNombreDispositivo(nombre)) {
+			models.add(modelMapper.map(evento, EventoModel.class));
+		}
+		return models;
+	}
+    
+    @Override
     public EventoModel getSensorById(int id) {
         EventoEntity evento = eventoRepository.findById(id);
         return modelMapper.map(evento, EventoModel.class);

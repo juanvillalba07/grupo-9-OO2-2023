@@ -29,9 +29,9 @@ public class ViewRouteHelper {
 	
 	//Redirecciones de Estacionamiento
 	public final static String REDIRECT_AGREGAR_SENSOR_ESTACIONAMIENTO = "agregarSensor";
-	public final static String REDIRECT_ESTACIONAMIENTO_LISTA = "listaEstacionamiento";
-	public final static String REDIRECT_ESTACIONAMIENTO = "redirect:/estacionamiento/listaEstacionamiento";
-
+	public final static String REDIRECT_ESTACIONAMIENTO_LISTA = "lista-lugares";
+	public final static String REDIRECT_ESTACIONAMIENTO = "redirect:/estacionamiento/lista-lugares";
+	
 	//Alumbrado
 	public final static String SENSOR_ALUMBRADO_LISTA = "alumbrado/listaAlumbrados";
 	public final static String SENSOR_ALUMBRADO_CREAR = "alumbrado/agregarSensorAlumbrado";
@@ -42,9 +42,11 @@ public class ViewRouteHelper {
 	public final static String REDIRECT_ALUMBRADO_CREAR = "crear-alumbrado";
 	public final static String REDIRECT_ALUMBRADOS = "redirect:/alumbrado/lista-alumbrado";
 	
+	
 	//Evento
-	public final static String EVENTOS = "evento/listaEventos";
-
+	public final static String EVENTOS_FECHA = "evento/listaEventos";
+	public final static String EVENTOS_NOMBRE = "evento/ListaEventosPorNombre";
+	
 	//Sensor Humedad
 	//Views
 	public final static String SENSOR_HUMEDAD_LISTA = "sensorHumedad/listaSensorHumedad";

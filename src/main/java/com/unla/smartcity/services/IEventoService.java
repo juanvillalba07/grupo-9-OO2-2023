@@ -12,5 +12,6 @@ public interface IEventoService {
     public EventoModel agregarEvento(EventoEntity eventoEntity);
     public List<EventoModel> getAll();
     public List<EventoModel> getEventosByFecha(LocalDateTime desde, LocalDateTime hasta);
+	public List<EventoModel> findByNombreDispositivo(String nombre);
     public EventoModel getSensorById(int id);
 }

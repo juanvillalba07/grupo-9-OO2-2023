@@ -24,26 +24,36 @@ import java.util.List;
 @RequestMapping("/evento")
 public class EventoController {
 
-    @Autowired
-    @Qualifier("eventoService")
-    private IEventoService eventoService;
+	@Autowired
+	@Qualifier("eventoService")
+	private IEventoService eventoService;
 
-    private ModelMapper modelMapper = new ModelMapper();
+	private ModelMapper modelMapper = new ModelMapper();
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
-    @GetMapping()
-    public ModelAndView index() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.EVENTOS);
-        return mAV;
-    }
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
+	@GetMapping()
+	public ModelAndView index() {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.EVENTOS_FECHA);
+		return mAV;
+	}
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
-    @GetMapping("/listaEventos")
-    public void getEventosByFecha(@RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaInicio,
-                        @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaFin,
-                        Model model) {
-        List<EventoModel> eventoModels = eventoService.getEventosByFecha(fechaInicio, fechaFin);
-        model.addAttribute("eventos", eventoModels);
-    }
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
+	@GetMapping("/listaEventos")
+	public void getEventosByFecha(
+			@RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaInicio,
+			@RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaFin,
+			Model model) {
+		List<EventoModel> eventoModels = eventoService.getEventosByFecha(fechaInicio, fechaFin);
+		model.addAttribute("eventos", eventoModels);
+	}
 
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
+	@GetMapping("/listaEventosNombre")
+	public ModelAndView eventosPorNombre(@RequestParam("nombre") String nombre, Model model) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.EVENTOS_NOMBRE);
+		List<EventoModel> eventoModels = eventoService.findByNombreDispositivo(nombre);
+
+		model.addAttribute("evento", eventoModels);
+		return mAV;
+	}
 }

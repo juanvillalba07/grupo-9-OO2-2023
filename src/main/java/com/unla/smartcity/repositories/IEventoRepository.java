@@ -14,4 +14,7 @@ public interface IEventoRepository extends JpaRepository<EventoEntity, Serializa
     public abstract EventoEntity findById(int id);
     @Query("SELECT e FROM EventoEntity e where e.fechaHora>=:desde and e.fechaHora<=:hasta")
     public abstract List<EventoEntity> getEventosByFecha(LocalDateTime desde,LocalDateTime hasta);
+    
+	@Query("SELECT e FROM EventoEntity e JOIN FETCH e.dispositivo d WHERE d.nombre = (:nombre)")
+	public abstract List<EventoEntity> findByNombreDispositivo(String nombre);
 }
