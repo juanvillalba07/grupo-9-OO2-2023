@@ -1,4 +1,4 @@
-/*package com.unla.smartcity.components;
+package com.unla.smartcity.components;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -85,4 +85,4 @@ public class EventosAlumbradoComponent {
 		alumbradoService.InsertOrUpdate(sensor3);
 		eventoService.agregarEvento(evento3);
 	}	
-}*/
+}

@@ -49,10 +49,9 @@ public class EventoController {
 
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_AUDITOR')")
 	@GetMapping("/listaEventosNombre")
-	public ModelAndView eventosPorNombre(@RequestParam("nombre") String nombre, Model model) {
+	public ModelAndView eventosPorNombre(@RequestParam(required=false, name="nombre") String nombre, Model model) {
 		ModelAndView mAV = new ModelAndView(ViewRouteHelper.EVENTOS_NOMBRE);
 		List<EventoModel> eventoModels = eventoService.findByNombreDispositivo(nombre);
-
 		model.addAttribute("evento", eventoModels);
 		return mAV;
 	}

@@ -1,4 +1,4 @@
-/*package com.unla.smartcity.components;
+package com.unla.smartcity.components;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +12,7 @@ import com.unla.smartcity.enums.Estado;
 import com.unla.smartcity.services.IEventoService;
 import com.unla.smartcity.services.ISensorBanioService;
 
-//@Component
+@Component
 public class EventosSensorBanioComponent {
 	
     @Autowired
@@ -22,7 +22,7 @@ public class EventosSensorBanioComponent {
 
     @Scheduled(fixedDelay=40000)
     public void evento1() {
-        SensorBanioEntity sensor1 = sensorBanioService.findById(1);
+        SensorBanioEntity sensor1 = sensorBanioService.findById(6);
         sensor1.setEstado(Estado.OCUPADO);
         sensorBanioService.actualizar(sensor1);
         EventoEntity evento = new EventoEntity();
@@ -31,7 +31,7 @@ public class EventosSensorBanioComponent {
         evento.setDispositivo(sensor1);
         eventoService.agregarEvento(evento);
 
-        SensorBanioEntity sensor3 = sensorBanioService.findById(3);
+        SensorBanioEntity sensor3 = sensorBanioService.findById(7);
         sensor3.setEstado(Estado.OCUPADO);
         sensorBanioService.actualizar(sensor3);
         EventoEntity evento2 = new EventoEntity();
@@ -43,7 +43,7 @@ public class EventosSensorBanioComponent {
 
     @Scheduled(fixedDelay=30000)
     public void evento2() {
-    	SensorBanioEntity sensor = sensorBanioService.findById(1);
+    	SensorBanioEntity sensor = sensorBanioService.findById(6);
         sensor.setEstado(Estado.LIBRE);
         sensorBanioService.actualizar(sensor);
         EventoEntity evento = new EventoEntity();
@@ -52,7 +52,7 @@ public class EventosSensorBanioComponent {
         evento.setDispositivo(sensor);
         eventoService.agregarEvento(evento);
 
-        SensorBanioEntity sensor3 = sensorBanioService.findById(3);
+        SensorBanioEntity sensor3 = sensorBanioService.findById(7);
         sensor3.setEstado(Estado.OCUPADO);
         sensorBanioService.actualizar(sensor3);
         EventoEntity evento2 = new EventoEntity();
@@ -63,4 +63,3 @@ public class EventosSensorBanioComponent {
     }
  
 }
-*/

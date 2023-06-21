@@ -70,6 +70,7 @@
 				<table class="table table-dark table-borderless">
 					<thead>
 						<tr>
+							<th>Nombre Sensor</th>
 							<th>Edificio</th>
 							<th>Turno</th>
 							<th>Hora Inicial de Limpieza</th>
@@ -80,6 +81,7 @@
 					</thead>
 					<tbody>
 						<tr th:each="b : ${banios}">
+							<td th:text="${b.nombre}" ></td>
 							<td th:text="${b.edificio}" ></td>
 							<td th:text="${b.turno}" ></td>
 						    <td th:text="${b.horaInicialLimpieza}" ></td>

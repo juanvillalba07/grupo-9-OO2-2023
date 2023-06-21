@@ -29,13 +29,18 @@
 						<small class="form-text text-danger" th:if="${#fields.hasErrors('edificio')}"
 							th:errors="*{edficio}"></small>
 					</div>
-
+					<div class="form-group row">
+						<input type="hidden" name="id" th:value="${banio.id}">
+						<label class="col-md-2" for="nombre">Nombre sensor</label>
+						<input type="text" th:field="*{nombre}" class="form-control form-control-sm col-md-6"
+							id="nombre" placeholder="Nombre">
+					</div>
 					<div class="form-group row">
 						<label class="col-md-2" for="turno">Turno</label>
-						 <input type="text" th:field="*{turno}" class="form-control form-control-sm col-md-6" id="turno"
-							placeholder="Turno"> 
-						 <small class="form-text text-danger" th:if="${#fields.hasErrors('turno')}"
-							th:errors="*{turno}"></small> 
+						<input type="text" th:field="*{turno}" class="form-control form-control-sm col-md-6" id="turno"
+							placeholder="Turno">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('turno')}"
+							th:errors="*{turno}"></small>
 					</div>
 
 					<div class="form-group row">
@@ -60,10 +65,11 @@
 							class="btn btn-primary btn-sm" />
 
 					</div>
-                </form>
+				</form>
 			</div>
 		</div>
 
 	</div>
 </body>
+
 </html>

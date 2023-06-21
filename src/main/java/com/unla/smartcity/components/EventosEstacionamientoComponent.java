@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 
 @Component
 public class EventosEstacionamientoComponent {
-/*
+	
     @Autowired
     private IEstacionamientoService estacionamientoService;
     @Autowired
@@ -24,7 +24,7 @@ public class EventosEstacionamientoComponent {
 
     @Scheduled(fixedDelay=40000)
     public void evento1() {
-        SensorEstacionamientoEntity sensor1 = estacionamientoService.getSensorById(1);
+        SensorEstacionamientoEntity sensor1 = estacionamientoService.getSensorById(4);
         sensor1.setEstado(Estado.OCUPADO);
         estacionamientoService.actualizar(sensor1);
         EventoEntity evento = new EventoEntity();
@@ -33,7 +33,7 @@ public class EventosEstacionamientoComponent {
         evento.setDispositivo(sensor1);
         eventoService.agregarEvento(evento);
 
-        SensorEstacionamientoEntity sensor3 = estacionamientoService.getSensorById(3);
+        SensorEstacionamientoEntity sensor3 = estacionamientoService.getSensorById(5);
         sensor3.setEstado(Estado.OCUPADO);
         estacionamientoService.actualizar(sensor3);
         EventoEntity evento2 = new EventoEntity();
@@ -45,7 +45,7 @@ public class EventosEstacionamientoComponent {
 
     @Scheduled(fixedDelay=30000)
     public void evento2() {
-        SensorEstacionamientoEntity sensor = estacionamientoService.getSensorById(1);
+        SensorEstacionamientoEntity sensor = estacionamientoService.getSensorById(4);
         sensor.setEstado(Estado.LIBRE);
         estacionamientoService.actualizar(sensor);
         EventoEntity evento = new EventoEntity();
@@ -54,7 +54,7 @@ public class EventosEstacionamientoComponent {
         evento.setDispositivo(sensor);
         eventoService.agregarEvento(evento);
 
-        SensorEstacionamientoEntity sensor3 = estacionamientoService.getSensorById(3);
+        SensorEstacionamientoEntity sensor3 = estacionamientoService.getSensorById(5);
         sensor3.setEstado(Estado.OCUPADO);
         estacionamientoService.actualizar(sensor3);
         EventoEntity evento2 = new EventoEntity();
@@ -63,5 +63,5 @@ public class EventosEstacionamientoComponent {
         evento2.setDispositivo(sensor3);
         eventoService.agregarEvento(evento2);
     }
- */
+
 }
