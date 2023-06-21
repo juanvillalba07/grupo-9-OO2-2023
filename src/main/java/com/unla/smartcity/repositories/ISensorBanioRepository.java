@@ -9,7 +9,7 @@ import com.unla.smartcity.entities.SensorBanioEntity;
 
 @Repository("sensorBanioRepository")
 public interface ISensorBanioRepository extends JpaRepository<SensorBanioEntity, Serializable>{
-    
+	
 	public abstract SensorBanioEntity findById(int id);
 
 }

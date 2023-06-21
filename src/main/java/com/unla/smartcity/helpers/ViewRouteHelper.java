@@ -12,6 +12,12 @@ public class ViewRouteHelper {
 	//Redirecciones UNLa
 	public final static String ROUTE = "/index";
 	
+	//Consultas
+	public final static String CONSULTAS = "consultas/buscar";
+	
+	//Redirecciones consultas
+	public final static String REDIRECT_CONSULTAS = "buscar";
+	
 	//Baños
 	public final static String SENSOR_BANIO_LISTA = "sensorBanio/listaBanios";
 	public final static String SENSOR_BANIO_CREAR = "sensorBanio/agregarSensor";

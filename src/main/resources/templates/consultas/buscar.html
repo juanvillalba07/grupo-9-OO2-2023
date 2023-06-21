@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+
+</head>
+
+<body>
+	<!-- Navigation -->
+	<link href="/css/image2.css" rel="stylesheet"/>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="#">UNLa</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					
+					<li class="nav-item">
+						<a class="nav-link" href="/index">Inicio</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="/consultas/buscar">Sensores de la UNLa</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	
+	<!-- CONTENIDO -->
+	<div class="container">
+		<h1>Detalles de los Sensores de la UNLa</h1>
+	</div>
+			<div class="container">
+				 <form class="form-inline" th:href="@{/consultas/buscar}">
+					<div class="form_group mb-2">
+						<label>Filtrar: </label>
+					</div>
+					<div class="form-group mx-sm-3 mb-2">
+						<input type="text" name="palabraClave" class="form-control" 
+						id="palabraClave" th:value="${palabraClave}" placeholder="Buscar" required>
+					</div>
+					<input type="submit" class="btn btn-primary mb-2" value="Buscar">
+					&nbsp; &nbsp;
+					<input type="button" class="btn btn-secondary mb-2" value="Limpiar" onclick="limpiarCampos()">
+				</form>
+				<table class="table table-dark table-borderless">
+				     <thead>
+						<tr>
+				            <th>Sensor Baño</th>
+							<th>Sensor Estacionamiento</th>
+							<th>Sensor Alumbrado</th>
+							<th>Sensor Riego</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+						  <td>
+				               <a class="btn btn-primary btn-sm" th:href="@{/sensorBanio/listaBanios}">Ver</a>
+			               </td>
+			               <td>
+				               <a class="btn btn-primary btn-sm" th:href="@{/estacionamiento/lista-lugares}">Ver</a>
+			               </td>
+			               <td>
+				               <a class="btn btn-primary btn-sm" th:href="@{/alumbrado/lista-alumbrado}">Ver</a>
+			               </td>
+			               <td>
+				               <a class="btn btn-primary btn-sm" th:href="@{/regado/lista-mediciones}">Ver</a>
+			               </td>
+						</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			
+	    <script type="text/javascript">
+			function limpiarCampos(){
+				window.location="/consultas/buscar";
+			}
+		</script>
+		
+     </body>
+</html>
