@@ -77,6 +77,7 @@ public class EstacionamientoController {
     public RedirectView editar(@ModelAttribute("sensorEstacionamiento") SensorEstacionamientoModel sensorEstacionamientoModel) {
 		if(sensorEstacionamientoModel.getId() > 0) {
 			SensorEstacionamientoEntity sensorEstacionamientoEntity = estacionamientoService.getSensorById(sensorEstacionamientoModel.getId());
+            sensorEstacionamientoEntity.setLugar(sensorEstacionamientoModel.getLugar());
             sensorEstacionamientoEntity.setNombre(sensorEstacionamientoModel.getNombre());
             estacionamientoService.actualizar(sensorEstacionamientoEntity);
 		}
