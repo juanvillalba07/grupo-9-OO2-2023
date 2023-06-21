@@ -55,7 +55,7 @@ public class EventosEstacionamientoComponent {
         eventoService.agregarEvento(evento);
 
         SensorEstacionamientoEntity sensor3 = estacionamientoService.getSensorById(5);
-        sensor3.setEstado(Estado.OCUPADO);
+        sensor3.setEstado(Estado.LIBRE);
         estacionamientoService.actualizar(sensor3);
         EventoEntity evento2 = new EventoEntity();
         evento2.setDescripcion("Se libero el lugar "+sensor3.getLugar());
