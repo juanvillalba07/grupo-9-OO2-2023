@@ -54,11 +54,10 @@ public class EventosAlumbradoComponent {
 
 	@Scheduled(fixedDelay = 10000)
 	public void evento2() {
-		Random random = new Random();
 		SensorAlumbradoEntity sensor1 = alumbradoService.findById(1);
 		EventoEntity evento = new EventoEntity();
 		alumbradoService.calcularEstado(sensor1);
-		sensor1.setLuzAmbiente(random.nextInt(10));
+		sensor1.setLuzAmbiente((int)Math.random()*10+1);
 		alumbradoService.InsertOrUpdate(sensor1);
 		evento.setDescripcion(alumbradoService.calcularIntensidad(sensor1));
 		evento.setDispositivo(sensor1);
@@ -68,7 +67,7 @@ public class EventosAlumbradoComponent {
 		SensorAlumbradoEntity sensor2 = alumbradoService.findById(2);
 		EventoEntity evento2 = new EventoEntity();
 		alumbradoService.calcularEstado(sensor2);
-		sensor2.setLuzAmbiente(random.nextInt(10));
+		sensor2.setLuzAmbiente((int)Math.random()*10+1);
 		alumbradoService.InsertOrUpdate(sensor2);
 		evento2.setDescripcion(alumbradoService.calcularIntensidad(sensor2));
 		evento2.setDispositivo(sensor2);
@@ -78,7 +77,7 @@ public class EventosAlumbradoComponent {
 		SensorAlumbradoEntity sensor3 = alumbradoService.findById(3);
 		EventoEntity evento3 = new EventoEntity();
 		alumbradoService.calcularEstado(sensor3);
-		sensor3.setLuzAmbiente(random.nextInt(10));
+		sensor3.setLuzAmbiente((int)Math.random()*10+1);
 		alumbradoService.InsertOrUpdate(sensor3);
 		evento3.setDescripcion(alumbradoService.calcularIntensidad(sensor3));
 		evento3.setDispositivo(sensor3);
