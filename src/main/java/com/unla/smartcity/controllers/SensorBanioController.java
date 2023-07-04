@@ -123,4 +123,13 @@ public class SensorBanioController {
 		return ViewRouteHelper.REDIRECT_SENSOR_BANIOS;
 	}
 	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@GetMapping("/eliminar-sensor/{id}") //http://localhost:8080/sensorBanio/eliminar-sensor/id
+	public String eliminar(@PathVariable("id") int idSensorBanio, RedirectAttributes attribute) {
+
+		sensorBanioService.eliminar(idSensorBanio); 
+		attribute.addFlashAttribute("warning", "Sensor Eliminado con Exito!");
+		return ViewRouteHelper.REDIRECT_SENSOR_BANIOS;
+	}
+	
 }

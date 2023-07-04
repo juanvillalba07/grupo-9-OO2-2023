@@ -15,5 +15,7 @@ public interface ISensorBanioService {
 	public void desactivar(int id);
 	
     public void activar(int id);
+    
+    public boolean eliminar(int id);
 
 }

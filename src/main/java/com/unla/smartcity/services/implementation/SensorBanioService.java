@@ -48,5 +48,15 @@ public class SensorBanioService implements ISensorBanioService{
 		
 	}
 
+	@Override
+	public boolean eliminar(int id) {
+		try {
+			sensorBanioRepository.deleteById(id);
+			return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+
 
 }

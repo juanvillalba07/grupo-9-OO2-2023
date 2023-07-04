@@ -89,7 +89,7 @@
 							<td th:text="${b.estado}" ></td>
 							<td><span th:text="${b.activo} ? 'Si' : 'No'" /></td>
 							<td>
-								<a class="btn btn-primary btn-sm" th:href="@{/sensorBanio/editar/{id}(id=${b.id})}" title="Editar Sensor" >Editar</a>
+								<a class="btn btn-info btn-sm" th:href="@{/sensorBanio/editar/{id}(id=${b.id})}" title="Editar Sensor" >Editar</a>
 							</td>
 							 <td th:if="${b.activo}">
 								<a class="btn btn-danger btn-sm" th:href="@{/sensorBanio/desactivar-sensor/{id}(id=${b.id})}" title="Desactivar Sensor"
@@ -98,6 +98,10 @@
 							<td th:unless="${b.activo}">
 							<a class="btn btn-success btn-sm" th:href="@{/sensorBanio/activar-sensor/{id}(id=${b.id})}" onclick="return confirm('¿Estás seguro de que deseas activar el sensor?')">Activar</a>
 						   </td>
+						   <td>
+								<a class="btn btn-warning btn-sm" th:href="@{/sensorBanio/eliminar-sensor/{id}(id=${b.id})}" title="Eliminar Sensor"
+								onclick="return confirm('¿Estas seguro de eliminar el sensor?'); ">Eliminar</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>

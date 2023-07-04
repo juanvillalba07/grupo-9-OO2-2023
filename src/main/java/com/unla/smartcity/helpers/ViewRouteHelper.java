@@ -13,7 +13,9 @@ public class ViewRouteHelper {
 	public final static String ROUTE = "/index";
 	
 	//Consultas
-	public final static String CONSULTAS = "consultas/buscar";
+	public final static String CONSULTAS_BUSCAR = "consultas/buscar";
+	public final static String CONSULTAS_SENSOR_BANIO = "consultas/sensorBanio";
+	public final static String CONSULTAS_SENSOR_ESTACIONAMIENTO = "consultas/sensorEstacionamiento";
 	
 	//Redirecciones consultas
 	public final static String REDIRECT_CONSULTAS = "buscar";
