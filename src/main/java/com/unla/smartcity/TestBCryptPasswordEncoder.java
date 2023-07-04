@@ -12,6 +12,9 @@ public class TestBCryptPasswordEncoder {
 		BCryptPasswordEncoder pe1 = new BCryptPasswordEncoder();
 		System.out.println(pe1.encode("audi"));
 		
+		BCryptPasswordEncoder pe2 = new BCryptPasswordEncoder();
+		System.out.println(pe2.encode("root"));
+		
 	}
 
 }
