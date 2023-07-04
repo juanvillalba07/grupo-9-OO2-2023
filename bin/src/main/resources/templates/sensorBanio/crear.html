@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<!-- Custom styles for this template -->
+
+</head>
+
+<body>
+	
+	<link href="/css/image1.css" rel="stylesheet"/>
+	
+	<div class="container">
+
+		<div class="card bg-light">
+			<div class="card-header bg-dark text-white">Formulario: Crear Baño</div>
+			<div class="card-body">
+
+				<form action="#" th:action="@{/sensorBanio/save}" th:object="${banio}" method="post">
+					<div class="form-group row">
+						<input type="hidden" name="id" th:value="${banio.id}">
+						<label class="col-md-2" for="edificio">Edificio</label>
+						<input type="text" th:field="*{edificio}"class="form-control form-control-sm col-md-6" id="edificio"
+							placeholder="Edificio">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('edificio')}" th:errors="*{edficio}"></small>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-md-2" for="turno">Turno</label>
+						<input type="text" th:field="*{turno}"class="form-control form-control-sm col-md-6" id="turno" placeholder="Turno">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('turno')}" th:errors="*{turno}"></small>
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="horaInicialLimpieza">Hora Inicial de Limpieza</label>
+						<input type="text" th:field="*{horaInicialLimpieza}"class="form-control form-control-sm col-md-6" id="horaInicialLimpieza" placeholder="Hora Inicial de Limpieza">
+						 <small class="form-text text-danger" th:if="${#fields.hasErrors('horaInicialLimpieza')}" th:errors="*{horaInicialLimpieza}"></small> 
+					</div>
+					
+					<div class="form-group row">
+						<label class="col-md-2" for="horaFinalLimpieza">Hora Final de Limpieza</label>
+						<input type="text" th:field="*{horaFinalLimpieza}"class="form-control form-control-sm col-md-6" id="horaFinalLimpieza" placeholder="Hora Final de Limpieza">
+						 <small class="form-text text-danger" th:if="${#fields.hasErrors('horaFinalLimpieza')}" th:errors="*{horaFinalLimpieza}"></small> 
+					</div> 
+                    
+                    <div class="form-group row">
+						<label class="col-md-2" for="libre">Libre?</label>
+						<input type="text" th:field="*{libre}"class="form-control form-control-sm col-md-6" id="libre" placeholder="Libre?">
+						<small class="form-text text-danger" th:if="${#fields.hasErrors('libre')}" th:errors="*{libre}"></small>
+					</div>
+                    
+					<!-- <div class="form-group row">
+						<label class="col-md-2" for="libre">Libre?</label>
+						<select class="form-control form-control-sm col-md-6" id="libre">
+							 <option th:each="ciudad:${ciudades}" th:value="${ciudad.id}" th:text="$ciudad.ciudad"></option> 
+							<option value="Si">Si</option>
+							<option value="No">No</option>
+						</select>
+					</div> -->
+					
+                   <div class="card-footer bg-dark">
+					<input type="submit" title="Crear Nuevo Baño" value="Guardar" class="btn btn-primary btn-sm"/>
+					
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+</body>
+
+</html>

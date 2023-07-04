@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+	<meta charset="utf-8" />
+	<title>UNLa</title>
+	<!-- Bootstrap core CSS -->
+	<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/css/styles.css" rel="stylesheet" />
+</head>
+
+  <body>
+	<!-- Navegador -->
+	<link href="/css/image.css" rel="stylesheet"/>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="/index">UNLa</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					
+					<li class="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+						class="nav-link dropdown-toggle" href="/sensorBanio/listaBanios" 
+						id="navbarDropdownBlog">Dispositivos
+						</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" data-toggle="dropdown"
+						   class="nav-link dropdown-toggle" href="/estacionamiento/lista-lugares"
+						   id="navbarDropdownBlog">Estacionamiento
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item dropdown">
+						<a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
+							data-toggle="dropdown" href="#" id="navbarDropdownBlog">Usuario 
+							<span th:text="${username}" />
+						</a>
+					</li>
+
+					<li class="nav-item">
+						<a class="nav-link" href="/logout">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Pie de pagina -->
+    <footer th:fragment="footer" class="bg-dark text-center text-white fixed-bottom">
+		<div class="container">
+			<p>Grupo 9 - OO2 -2023</p>
+		</div>
+	</footer>
+
+  </body>
+</html>

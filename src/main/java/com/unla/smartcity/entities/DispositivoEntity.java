@@ -18,6 +18,7 @@ public abstract class DispositivoEntity {
     protected Integer id;
 
     @Column
+    @NotEmpty
     protected String nombre;
 
     @Column

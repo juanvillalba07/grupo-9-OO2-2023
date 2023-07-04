@@ -58,23 +58,32 @@ public class SensorBanioController {
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/editar/{id}") //http://localhost:8080/sensorBanio/editar
-	public String editar(@PathVariable("id") int idBanio, Model model, 
-			RedirectAttributes attribute) {
-		
-		SensorBanioEntity banio = null;
-		
-		if(idBanio > 0 ) {
-	      banio = sensorBanioService.findById(idBanio);
-		}
-	    
-		if(banio == null) {
-	      attribute.addFlashAttribute("error", "ATENCION: El ID del Baño no existe");
-	      return ViewRouteHelper.REDIRECT_SENSOR_BANIOS ;
-	    }
-		
-	    model.addAttribute("banio", banio);
-	    return ViewRouteHelper.SENSOR_BANIO_EDITAR;
+	public ModelAndView editar(@PathVariable("id") int idSensorBanio) {
+		ModelAndView mAV = new ModelAndView(ViewRouteHelper.SENSOR_BANIO_EDITAR);
+        mAV.addObject("sensor", sensorBanioService.findById(idSensorBanio));
+        return mAV;
 	}
+	
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PostMapping("/actualizar-sensor")
+    public RedirectView editar(@ModelAttribute("sensorBanioModel") SensorBanioModel sensorBanioModel,
+    		RedirectAttributes attribute) {
+		if(sensorBanioModel.getId() > 0) {
+			SensorBanioEntity sensorBanioEntity = sensorBanioService.findById(sensorBanioModel.getId());
+			sensorBanioEntity.setNombre(sensorBanioModel.getNombre());
+			sensorBanioEntity.setEdificio(sensorBanioModel.getEdificio());
+			sensorBanioEntity.setTurno(sensorBanioModel.getTurno());
+			sensorBanioEntity.setHoraInicialLimpieza(sensorBanioModel.getHoraInicialLimpieza());
+			sensorBanioEntity.setHoraFinalLimpieza(sensorBanioModel.getHoraFinalLimpieza());
+            sensorBanioService.actualizar(sensorBanioEntity);
+		}
+		/*if(sensorBanioModel.getId() == null) {
+			attribute.addFlashAttribute("error", "ATENCION: El ID del Sensor del Baño no existe");
+		     return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIOS);
+		}*/
+		attribute.addFlashAttribute("success", "Sensor Editado con Exito!");
+		return new RedirectView(ViewRouteHelper.REDIRECT_SENSOR_BANIO_LISTA);
+    }
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@PostMapping("/guardar")

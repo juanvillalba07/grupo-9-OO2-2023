@@ -12,7 +12,7 @@ import com.unla.smartcity.enums.Estado;
 import com.unla.smartcity.services.IEventoService;
 import com.unla.smartcity.services.ISensorBanioService;
 
-@Component
+//@Component
 public class EventosSensorBanioComponent {
 	
     @Autowired

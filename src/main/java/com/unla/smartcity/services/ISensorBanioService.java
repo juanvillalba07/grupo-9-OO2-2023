@@ -9,7 +9,7 @@ public interface ISensorBanioService {
 	public List<SensorBanioEntity> getAll();
 	   
 	public SensorBanioEntity findById(int id);
-
+	
 	public SensorBanioEntity actualizar(SensorBanioEntity sensorBanioEntity);
 	
 	public void desactivar(int id);

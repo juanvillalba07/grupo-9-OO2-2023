@@ -13,7 +13,7 @@ import com.unla.smartcity.services.IEventoService;
 import com.unla.smartcity.services.ISensorAlumbradoService;
 import java.util.Random;
 
-@Component
+//@Component
 public class EventosAlumbradoComponent {
 
 	@Autowired
